@@ -46,7 +46,7 @@ public class Main {
         System.out.print("Please enter loan amount: ");
         double amountOfLoan = scanner.nextDouble();
 
-        System.out.print("Please enter annual interest rate: ");
+        System.out.print("Please enter annual interest rate (as percentage): ");
         float annualInterestRate = scanner.nextFloat();
 
         System.out.print("Please enter loan term in years: ");
@@ -72,9 +72,6 @@ public class Main {
     }
 
 // Calculator 2: CD Calculator
-    public static void CDCalculator() {
-        System.out.println("Welcome to CD Calculator");
-
 // Determine the future value of a one-time deposit assuming compound interest
 
     // Inputs
@@ -86,7 +83,33 @@ public class Main {
 // the future value - futureValue, double
 // the total interest earned - totalInterestEarned, double
 
+    public static void CDCalculator() {
+        System.out.println("Welcome to CD Calculator");
 
+        System.out.println("Enter deposit amount: ");
+        double deposit = scanner.nextDouble();
+
+        System.out.println("Enter annual interest rate (as percentage): ");
+        float annualInterestRate = scanner.nextFloat();
+
+        System.out.println("Enter term length in years: ");
+        short termLenght = scanner.nextShort();
+
+// Amount of times interest is compounded per year, I wonder how some would include leap years
+        short compoundedPerYear = 365;
+
+// Convert annual interest rate into decimal
+        float interestRate = annualInterestRate/100;
+
+// Calculate future value of the CD savings account
+        double futureValue = deposit * (1 + interestRate / compoundedPerYear) Math.pow(compoundedPerYear * termLenght);
+
+// Calculate the total interest earned
+        double totalInterestEarned = futureValue - deposit;
+
+// Display results
+        System.out.printf("Your future value of the CD is: $%.2f", futureValue);
+        System.out.printf("Your total interest earned on the CD is: ", totalInterestEarned);
     }
 
 }
