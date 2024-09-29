@@ -65,9 +65,9 @@ public class Main {
         double totalInterest = (monthlyPayment * totalMonthlyPayments) - amountOfLoan;
 
         // Display results/System.out.println();
-        System.out.printf("Your monthly payment will be: $%.2f", monthlyPayment);
+        System.out.printf("Your monthly payment will be: $%.2f\n", monthlyPayment);
 
-        System.out.printf("The total interest you will pay over your annual loan length: $%.2f", totalInterest);
+        System.out.printf("The total interest you will pay over your annual loan length: $%.2f\n", totalInterest);
 
     }
 
@@ -86,14 +86,14 @@ public class Main {
     public static void CDCalculator() {
         System.out.println("Welcome to CD Calculator");
 
-        System.out.println("Enter deposit amount: ");
+        System.out.print("Enter deposit amount: ");
         double deposit = scanner.nextDouble();
 
-        System.out.println("Enter annual interest rate (as percentage): ");
+        System.out.print("Enter annual interest rate (as percentage): ");
         float annualInterestRate = scanner.nextFloat();
 
-        System.out.println("Enter term length in years: ");
-        short termLenght = scanner.nextShort();
+        System.out.print("Enter term length in years: ");
+        short termLength = scanner.nextShort();
 
 // Amount of times interest is compounded per year, I wonder how some would include leap years
         short compoundedPerYear = 365;
@@ -102,14 +102,15 @@ public class Main {
         float interestRate = annualInterestRate/100;
 
 // Calculate future value of the CD savings account
-        double futureValue = deposit * (1 + interestRate / compoundedPerYear) Math.pow(compoundedPerYear * termLenght);
+        double futureValue = deposit * Math.pow(1 + (interestRate / compoundedPerYear), compoundedPerYear * termLength);
 
 // Calculate the total interest earned
         double totalInterestEarned = futureValue - deposit;
 
 // Display results
-        System.out.printf("Your future value of the CD is: $%.2f", futureValue);
-        System.out.printf("Your total interest earned on the CD is: ", totalInterestEarned);
+        System.out.printf("Your future value of the CD is: $%.2f\n", futureValue);
+
+        System.out.printf("Your total interest earned on the CD is: $%.2f\n ", totalInterestEarned);
     }
 
 }
